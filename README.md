@@ -1,5 +1,6 @@
 # AIProductTest
-AIProductTest is a modern REST API that leverages Large Language Models (LLM) to automate and optimize product listing enrichment. Designed for e-commerce professionals and digital marketers, this solution automatically generates SEO-optimized product descriptions, relevant keywords, and categorization suggestions.
+AIProductTest is a lightweight exploratory project focused on the use of Large Language Models (LLMs) for product data enrichment.
+It investigates how LLMs can assist in generating SEO-friendly product descriptions, relevant keywords, and categorization suggestions, with potential applications in e-commerce and digital marketing.
 
 ## Features
 - **Description Enhancement**: Transform basic information into detailed and engaging descriptions
