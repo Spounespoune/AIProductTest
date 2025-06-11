@@ -1,0 +1,41 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: api-typescript-express
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./src:/app/src
+      - ./package.json:/app/package.json
+      - ./tsconfig.json:/app/tsconfig.json
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - OLLAMA_API_URL=http://ollama:11434
+    depends_on:
+      - ollama
+    networks:
+      - app-network
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama-service
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+      - ./docker/init-ollama.sh:/init-ollama.sh
+    environment:
+      - MODEL=mistral
+    entrypoint: [ "/bin/sh", "/init-ollama.sh" ]
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  ollama-data:
