@@ -26,10 +26,10 @@ app.post('/enrich-product', async (req, res) => {
 
     const systemMessage = {
         role: 'system',
-        content: 'Tu es un expert en référencement et enrichissement de produits e-commerce. \n' +
-            '                     Ton rôle est d\'analyser les informations fournies sur un produit et de les enrichir \n' +
-            '                     en ajoutant des descriptions détaillées, des mots-clés pertinents pour le SEO, \n' +
-            '                     et des suggestions d\'amélioration. Réponds uniquement au format JSON valide.\n'
+        content: `Tu es un expert en référencement et enrichissement de produits e-commerce. 
+                  Ton rôle est d\'analyser les informations fournies sur un produit et de les enrichir 
+                  en ajoutant des descriptions détaillées, des mots-clés pertinents pour le SEO, 
+                  et des suggestions d\'amélioration. Réponds uniquement au format JSON valide.`
     }
 
     const userMessage = {
