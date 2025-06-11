@@ -3,6 +3,12 @@ import app from '../src/app';
 
 describe('Product', () => {
 
+    it('ollama is running', async () => {
+        const response = await request(app).get('/status');
+
+        expect(response.status).toBe(200);
+    })
+
     it('should return a enrich product', async () => {
 
         const product = {

@@ -10,6 +10,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.get('/status', async (req, res) => {
+    const response = await ollama.chat({
+        model: 'mistral',
+        messages: [],
+    });
+
+    res.json({
+        content: response.message.content
+    });
+});
+
 app.post('/enrich-product', async (req, res) => {
     const product = req.body;
 
@@ -43,7 +54,6 @@ app.post('/enrich-product', async (req, res) => {
             temperature: 0.7,
             num_predict: 2048
         }
-
     });
 
     res.json({
